@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'ChenyuLuoYan';
+  /* 使用可靠的 CDN 載入辰宇落雁體 */
+  src: url('https://cdn.jsdelivr.net/npm/chenyuluoyan-font@1.0.0/fonts/ChenyuLuoYan-Regular.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/chenyuluoyan/chenyuluoyan@v1.0/fonts/ChenyuLuoYan-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&family=ZCOOL+KuaiLe&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Quicksand", "Pangolin", "ZCOOL KuaiLe", "Microsoft JhengHei", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "ZCOOL KuaiLe", "ChenyuLuoYan", "Pangolin", serif;
+}
+
+@layer base {
+  body {
+    @apply antialiased font-sans bg-[#FDFBF9] text-[#4A4540];
+    font-family: "Quicksand", "Pangolin", "ZCOOL KuaiLe", sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+    font-family: "ZCOOL KuaiLe", "ChenyuLuoYan", serif;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.2);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.4);
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
